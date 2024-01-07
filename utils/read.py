@@ -12,13 +12,13 @@ class FileRead:
         self.ini_path = ini_path
 
     def read_data(self):
-        f = open(data_path, encoding="utf8")
+        f = open(self.data_path, encoding="utf8")
         data = yaml.safe_load(f)
         return data
 
     def read_ini_host(self):
         config = configparser.ConfigParser()  # 实例化对象
-        config.read(ini_path, encoding="utf8")
+        config.read(self.ini_path, encoding='utf8')
         return config
 
 

@@ -1,8 +1,8 @@
-from core.api_util import Api
+from core.api_util import api_util
 
 
 def mobile_query(params):
-    response = Api().get_mobile_belong(params=params)
+    response = api_util.get_mobile_belong(params=params)
     return response.json()
 
 def mobile_json(json_data):
@@ -11,5 +11,5 @@ def mobile_json(json_data):
     :param json_data:
     :return:
     """
-    response = Api().post_data(json=json_data)
+    response = api_util.post_data(json=json_data)
     return response.json()
