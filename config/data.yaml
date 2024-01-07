@@ -1,0 +1,63 @@
+person:
+  - name: 南京-${random_name()}-测试组
+    age: ${age()}
+    sex: ${sex()}
+  - name: 南京-${random_name()}-测试组
+    age: ${age()}
+    sex: ${sex()}
+
+hero1:
+  name: 安琪拉
+  word: 火焰是我最喜欢的玩具
+  hp: 445.67
+
+heros_name:
+  - 安琪拉
+  - 黄忠
+  - 小巧
+
+heros:
+  - name: 黄忠
+    word: 周日被我射熄火了
+  - name: 李白
+    word: 大河之剑天上来
+
+heros_name_list:
+  - - 安琪拉
+    - 黄忠
+    - 小巧
+
+heros_name_word:
+  - - 黄忠
+    - 周日被我射熄火了
+  - - 安琪拉
+    - 火焰是我最喜欢的玩具
+
+test:
+  name: login_case1
+  request:
+    url: http://x.x.x.x/api/v1/login/
+    method: post
+    headers:
+      Content-Type: application/json
+    json:
+      username: test
+      password: 123456
+      heros:
+        - name: 黄忠
+          word: 周日被我射熄火了
+          hp: 440
+        - name: 李白
+          word: 大河之剑天上来
+          hp: 440
+
+mobile_belong_get:
+  - shouji: "15705187072"
+    appkey: 0c818521d38759e1
+  - shouji: "18305181206"
+    appkey: 0c818521d38759e1
+
+mobile_belong_post:
+  #手机号，appkey
+  - [15705187072,0c818521d38759e1]
+  - [18305181206,0c818521d38759e1]
