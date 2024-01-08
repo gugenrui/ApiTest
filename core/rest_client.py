@@ -13,6 +13,7 @@ class RestClient:
     def __init__(self):
         self.api_root_url_get = api_root_url_get
         self.api_root_url_post = api_root_url_post
+        self.session = requests.session()
 
     def get(self, url, **kwargs):
         # return requests.get(self.api_root_url + url, **kwargs)
@@ -31,9 +32,9 @@ class RestClient:
     def request(self, url, method, **kwargs):
         self.request_log(url, method, **kwargs)
         if method == "GET":
-            return requests.get(self.api_root_url_get + url, **kwargs)
+            return self.session.get(self.api_root_url_get + url, **kwargs)
         if method == "POST":
-            return requests.post(self.api_root_url_post + url, **kwargs)
+            return self.session.post(self.api_root_url_post + url, **kwargs)
         # if method == "PUT":
         #     return requests.put(self.api_root_url + url, **kwargs)
         # if method == "DELETE":
