@@ -1,3 +1,3 @@
-#用来组装response
+# 用来组装response
 class ResultResponse:
     pass

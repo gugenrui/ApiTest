@@ -54,8 +54,6 @@ test:
 mobile_belong_get:
   - shouji: "15705187072"
     appkey: 0c818521d38759e1
-  - shouji: "18305181206"
-    appkey: 0c818521d38759e1
 
 mobile_belong_post:
   #手机号，appkey
