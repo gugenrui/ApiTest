@@ -34,3 +34,32 @@ def login(username, password):
     json_data = {"username": str(username), "password": str(password)}
     response = api_util.user_login(json=json_data)
     return process_response(response)
+
+
+def add_shopping_cart(params, token):
+    """
+    添加购物车
+    :param token:
+    :param params:
+    :return:
+    """
+    headers = {
+        "Authorization": "JWT " + token
+    }
+    response = api_util.shopping_add(json=params, headers=headers)
+    return process_response(response)
+
+
+def add_message(data, files, token):
+    """
+    增加留言
+    :param data:
+    :param files:
+    :param token:
+    :return:
+    """
+    headers = {
+        "Authorization": "JWT " + token
+    }
+    response = api_util.add_message(data=data, files=files, headers=headers)
+    return process_response(response)

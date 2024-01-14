@@ -22,7 +22,13 @@ class Api(RestClient):
     def user_login(self, **kwargs):
         return self.post("/login/", **kwargs)
 
-#     goods_api
+    def shopping_add(self, **kwargs):
+        return self.post("/shopcarts/", **kwargs)
+
+    def add_message(self, **kwargs):
+        return self.post("/messages/", **kwargs)
+
+    # goods_api
     def banner(self, **kwargs):
         return self.get("/banners/", **kwargs)
 
