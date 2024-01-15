@@ -9,6 +9,8 @@ from utils.read import base_data
 
 @allure.feature("用户中心模块")
 class TestUser:
+    mobile = None
+
     @allure.story("用户注册后登陆")
     @allure.title("注册手机号测试用例")
     def test_register(self):
@@ -31,6 +33,7 @@ class TestUser:
     @allure.title("手机号登陆测试用例")
     @pytest.mark.parametrize("username,password", get_data()['user_login'])
     def test_login(self, username, password):
+        TestUser.mobile = username
         result = login(username, password)
         assert result.success is True
         assert result.body['token'] is not None
@@ -55,5 +58,24 @@ class TestUser:
         data = get_data()['add_message']
         files = base_data.read_file()
         result = add_message(data, files, token)
+        assert result.success is True
+        assert result.body['subject'] == data['subject']
+
+    @allure.story("购物车相关")
+    @allure.title("加购物车测试用例")
+    def test_shopping_cart2(self, login_token):
+        param = get_data()['shopping_cart']
+        result = add_shopping_cart(param, login_token)
+        # 查询购物车商品的数量
+        num = get_shop_cart_num(TestUser.mobile, param['goods'])
+        assert result.success is True
+        assert result.body['nums'] == num
+
+    @allure.story("留言板相关")
+    @allure.title("加留言测试用例")
+    def test_add_message2(self, login_token):
+        data = get_data()['add_message']
+        files = base_data.read_file()
+        result = add_message(data, files, login_token)
         assert result.success is True
         assert result.body['subject'] == data['subject']

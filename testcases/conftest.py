@@ -23,3 +23,13 @@ def login_fixture():
         return result.body['token'], mobile
     else:
         return os.environ['token'], os.environ['mobile']
+
+
+@pytest.fixture(scope="session")
+def login_token():
+    data = get_data()['login_fixture']
+    mobile = data['mobile']
+    password = data['password']
+    # 登陆接口
+    result = login(mobile, password)
+    return result.body['token']
