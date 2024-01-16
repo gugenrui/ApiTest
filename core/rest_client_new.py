@@ -48,4 +48,4 @@ class RestClient:
         if params is not None:
             logger.info("接口请求的params参数>>>\n{}".format(json.dumps(params, ensure_ascii=False, indent=2)))
         if headers is not None:
-            logger.info("接口请求的params参数>>>\n{}".format(json.dumps(headers, ensure_ascii=False, indent=2)))
+            logger.info("接口请求的headers参数>>>\n{}".format(json.dumps(headers, ensure_ascii=False, indent=2)))

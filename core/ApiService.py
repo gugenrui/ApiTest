@@ -1,9 +1,11 @@
 from core.rest_client_new import RestClient
+from utils.AssertUtil import AssertUtil
 
 
 class ApiService:
     def __init__(self):
         self.session = RestClient()
+        self.assert_util = AssertUtil()
 
     def handle_case(self, test_data):
         # 获取url
@@ -18,4 +20,6 @@ class ApiService:
         # 获取validate
         validate = case_info.pop("validate", None)
         res = self.session.do_request(url=url, method=method, headers=headers, **case_info)
+        # 断言逻辑
+        self.assert_util.validate_response(res, validate)
         return res

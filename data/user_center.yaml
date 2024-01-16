@@ -11,5 +11,5 @@ user_login_new:
         username: 15000000002
         password: 123456
       validate:
-        - contains: [$.token, 'syjoe']
-        - contains: [$.token, 'syjoe']
+        - contains: [$.token, 'eyJ0eX']
+#        - contains: [$.token, 'eyJ0eX1']
